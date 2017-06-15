@@ -1,0 +1,94 @@
+<html>
+	<head>
+		<script type="text/javascript" src="index.js"></script>
+		  <meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- <script src="jquery-3.2.0.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+		<!-- For jQuery Mobile view for Watchlist screen -->
+		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<title>AnimeUrge</title>
+	</head>
+
+	<body>
+		<div id="main" class="dynamic-app-screen">
+			<div class="sonar-wrapper">
+				<h1 id="main-title">Find Anime</h1>
+				<div id="circle" class="vertically-and-horizontally-centred" class="sonar-emitter" onclick="startLoadingAnime()">
+					<div id="sonar-wave"></div>
+					<p id="circle-button-text">NOW</p>
+				</div>
+			</div>
+		</div>
+
+		<div id="browse" class="browse-app-screen dynamic-app-screen" style="width: 100%; text-align: center; display: none;">
+			<div id="searchbar" style="text-align: center;">
+		    	<input type="text" placeholder="Search" class="text-input-field" id="search-input" />
+		    	<input type="submit" value="&#128269;" class="submit-button" id="search-submit" onclick="searchForAnime();" />
+		    	<div id="navigation-menu" class="overlay">
+				    <!-- The Navigation Menu is an overlay, so it exists here but it is just hidden until it's opened -->
+				    <!-- The href=javascript:void(0) gives it a 'clickable' feel -->
+					<a href="javascript:void(0)" class="close-button" onclick="closeNavigationMenu()">&times;</a>
+					<div class="overlay-menu-items">
+						<a href="#" onclick="menuOptionPressed('browse');">Browse</a>
+				    	<a href="#" onclick="menuOptionPressed('watchlist');">Watchlist</a>
+				    	<a href="#" onclick="menuOptionPressed('recommendations');">Recommendations</a>
+				    	<a href="#" onclick="menuOptionPressed('help');">Help</a>
+				  	</div>
+				</div>
+			    <span id="nav-button" onclick="openNavigationMenu()">&#9776;</span>
+		    </div>		    
+		    <div id="thumbnail-display" style="position: relative; display: block; height: auto; text-align: center;"></div>
+		</div>
+
+		<div id="details" class="dynamic-app-screen" style="width: 100%; text-align: center; display: none;">
+		    <div id="detail-display" style="position: relative; display: block; height: auto; text-align: center; overflow: hidden;">
+		    	<!-- Put the back button here first -->
+		    </div>
+		    <!-- Will contain the anime name, picture, and all details -->
+		</div>
+
+		<div id="watchlist" class="dynamic-app-screen"  style="display: none">
+			<!-- <div id="trapezoid">
+			    <h1 id="watch-list-title">Watchlist</h1>
+			</div>
+
+			<div id="watch-list" data-role="main" class="ui-content">
+				<h2>Watchlist</h2>
+				The list items will be programmatically placed here
+				<ul id="anime-list" data-role="listview" data-inset="true" data-split-icon="delete" data-split-theme="a">
+
+				</ul>
+			</div> -->
+			<div id="watch-list" data-role="page" id="pageone">
+			  <div data-role="main" class="ui-content">
+			  	<div id="watch-list-display">
+				    
+					<!-- Implement later for 'nice' handling of user wanting to remove an anime from their watch list (confirmation prompt) -->
+					<!-- <div data-role="popup" id="remove-from-watchlist-popup" data-theme="a" data-overlay-theme="c" class="ui-content" style="max-width:340px; padding-bottom:2em; overflow: hidden;">
+					    <h3>Purchase Album?</h3>
+							<p>Your download will begin immediately on your mobile device when you purchase.</p>
+					    	<a href="#" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini">Buy: $10.99</a>
+					    	<a href="#" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Cancel</a>
+					</div> -->
+				</div>
+			  </div>
+			</div>
+		</div>
+
+		
+
+		<!-- Might need this for alternative recommendation algorithms -->
+		<!-- <div id="recommendations" class="dynamic-app-screen" style="display: none">
+			<div id="recommendation-list">
+			    <div id="trapezoid">
+			    	<h1 id="recommendation-title">Anime Recommendations</h1>
+			    </div>
+			</div>
+		</div> -->
+
+	</body>
+</html>
