@@ -1,3 +1,3 @@
 # EssaSaeed.github.io
 
-My personal website, it still needs some work.
+My personal website, still a work in progress.
