@@ -24,6 +24,9 @@ body {
     text-align: center;
 }
 
+button {
+    width: 100%;
+}
 
 /* body {
     background-color: #000;
